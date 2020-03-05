@@ -65,81 +65,83 @@ void initBoard()
 // Since count is an unsigned integer, you can mask the value in some way.
 void changeLaunchpadLED2(unsigned int count)
 {
-    timer0Expired(void);
-    LEDRon; LEDGoff; LEDBoff; LEDR2off; LEDG2off; LEDB2off;
-    count++;
+    if(timer0Expired())
+    {
+        LEDRon; LEDGoff; LEDBoff; LEDR2off; LEDG2off; LEDB2off;
+        count++;
 
-    LEDRoff; LEDGon; LEDBoff; LEDR2off; LEDG2off; LEDB2off;
-    count++;
+        LEDRoff; LEDGon; LEDBoff; LEDR2off; LEDG2off; LEDB2off;
+        count++;
 
-    LEDRon; LEDGon; LEDBoff; LEDR2off; LEDG2off; LEDB2off;
-    count++;
+        LEDRon; LEDGon; LEDBoff; LEDR2off; LEDG2off; LEDB2off;
+        count++;
 
-    LEDRoff; LEDGoff; LEDBon; LEDR2off; LEDG2off; LEDB2off;
-    count++;
+        LEDRoff; LEDGoff; LEDBon; LEDR2off; LEDG2off; LEDB2off;
+        count++;
 
-    LEDRon; LEDGoff; LEDBon; LEDR2off; LEDG2off; LEDB2off;
-    count++;
+        LEDRon; LEDGoff; LEDBon; LEDR2off; LEDG2off; LEDB2off;
+        count++;
 
-    LEDRoff; LEDGon; LEDBon; LEDR2off; LEDG2off; LEDB2off;
-    count++;
+        LEDRoff; LEDGon; LEDBon; LEDR2off; LEDG2off; LEDB2off;
+        count++;
 
-    LEDRon; LEDGon; LEDBon; LEDR2off; LEDG2off; LEDB2off;
-    count++;
+        LEDRon; LEDGon; LEDBon; LEDR2off; LEDG2off; LEDB2off;
+        count++;
 
-    LEDRoff; LEDGoff; LEDBoff; LEDR2off; LEDG2off; LEDB2off;
-    count++;
+        LEDRoff; LEDGoff; LEDBoff; LEDR2off; LEDG2off; LEDB2off;
+        count++;
+    }
 }
 
 // TODO: Maybe the value of a count variable to a color for the Boosterpack LED
 // This is essentially a copy of the previous function, using a different LED
 void changeBoosterpackLED(unsigned int count)
 {
-    if ((P5IN & BUTTOM4) == 0)
+    while ((P5IN & BUTTOM4) == 0)
     {
         count++;
-    }
+        if ( count == 0 )
+        {
+            LEDRoff; LEDGoff; LEDBoff; LEDR2off; LEDG2off; LEDB2off;
+        }
 
-    if ( count == 0 )
-    {
-        LEDRoff; LEDGoff; LEDBoff; LEDR2off; LEDG2off; LEDB2off;
-    }
+        if ( count == 1 )
+        {
+            LEDRoff; LEDGoff; LEDBoff; LEDR2on; LEDG2off; LEDB2off;
+        }
 
-    if ( count == 1 )
-    {
-        LEDRoff; LEDGoff; LEDBoff; LEDR2on; LEDG2off; LEDB2off;
-    }
+        if ( count == 2 )
+        {
+            LEDRoff; LEDGoff; LEDBoff; LEDR2off; LEDG2on; LEDB2off;
+        }
 
-    if ( count == 2 )
-    {
-        LEDRoff; LEDGoff; LEDBoff; LEDR2off; LEDG2on; LEDB2off;
-    }
+        if ( count == 3 )
+        {
+            LEDRoff; LEDGoff; LEDBoff; LEDR2on; LEDG2on; LEDB2off;
+        }
 
-    if ( count == 3 )
-    {
-        LEDRoff; LEDGoff; LEDBoff; LEDR2on; LEDG2on; LEDB2off;
-    }
+        if ( count == 4 )
+        {
+            LEDRoff; LEDGoff; LEDBoff; LEDR2off; LEDG2off; LEDB2on;
+        }
 
-    if ( count == 4 )
-    {
-        LEDRoff; LEDGoff; LEDBoff; LEDR2off; LEDG2off; LEDB2on;
-    }
+        if ( count == 5 )
+        {
+            LEDRoff; LEDGoff; LEDBoff; LEDR2on; LEDG2off; LEDB2on;
+        }
+        if ( count == 6 )
+        {
+            LEDRoff; LEDGoff; LEDBoff; LEDR2off; LEDG2on; LEDB2on;
+        }
+        if ( count == 7 )
+        {
+            LEDRoff; LEDGoff; LEDBoff; LEDR2on; LEDG2on; LEDB2on;
+        }
 
-    if ( count == 5 )
-    {
-        LEDRoff; LEDGoff; LEDBoff; LEDR2on; LEDG2off; LEDB2on;
-    }
-    if ( count == 6 )
-    {
-        LEDRoff; LEDGoff; LEDBoff; LEDR2off; LEDG2on; LEDB2on;
-    }
-    if ( count == 7 )
-    {
-        LEDRoff; LEDGoff; LEDBoff; LEDR2on; LEDG2on; LEDB2on;
-    }
-    if ( count == 8 )
-    {
-        count = 0;
+        if ( count == 8 )
+        {
+            count = 0;
+        }
     }
 }
 
