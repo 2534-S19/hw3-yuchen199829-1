@@ -9,6 +9,26 @@
 #ifndef MYGPIO_H_
 #define MYGPIO_H_
 
+#define BUTTOM1 BIT1
+#define BUTTOM2 BIT4
+#define BUTTOM3 BIT5
+#define BUTTOM4 BIT1
+
+#define LED1on P1OUT = P1OUT | (BIT0)
+#define LED1off P1OUT = P1OUT & ~ (BIT0)
+#define LEDRon P2OUT = P2OUT | (BIT0)
+#define LEDRoff P2OUT = P2OUT & ~ (BIT0)
+#define LEDGon P2OUT = P2OUT | (BIT1)
+#define LEDGoff P2OUT = P2OUT & ~ (BIT1)
+#define LEDBon P2OUT = P2OUT | (BIT2)
+#define LEDBoff P2OUT = P2OUT & ~ (BIT2)
+#define LEDR2on P2OUT = P2OUT | (BIT6)
+#define LEDR2off P2OUT = P2OUT & ~ (BIT6)
+#define LEDG2on P2OUT = P2OUT | (BIT4)
+#define LEDG2off P2OUT = P2OUT & ~ (BIT4)
+#define LEDB2on P5OUT = P5OUT | (BIT6)
+#define LEDB2off P5OUT = P5OUT & ~ (BIT6)
+
 // This function initializes the peripherals used in the program.
 void initGPIO();
 // This function returns the value of Launchpad S1.
